@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register User</title>
+</head>
+<body>
+<H1><b>Welcome to Register Page</b></H1>
+
+<form action="/auth/register" method="post">
+    <b>Name: </b><input type="text" name="name"><br><br>
+    <b>Email: </b><input type="email" name="email"><br><br>
+    <b>Password: </b><input type="password" name="password"><br><br>
+    <button type="submit"><b>Register</b></button>
+</form><br>
+       <a href="/auth/login">login</a>
+
+
+</body>
+
+
+<style>
+    body{
+        background: rebeccapurple;
+    }
+</style>
+<script>
+    function register() {
+        fetch("/auth/register", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+                name: document.getElementById("name").value,
+                email: document.getElementById("email").value,
+                password: document.getElementById("password").value
+            })
+        })
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById("result").innerText = data;
+            });
+    }
+</script>
+
+
+</html>

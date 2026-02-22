@@ -34,15 +34,15 @@ public class UserService {
         return "User Registered Successfully";
     }
 
-    public String login(LoginRequest request) {
+    public boolean login(LoginRequest request) {
 
         User user = repo.findByEmail(request.getEmail())
                 .orElseThrow(() -> new RuntimeException("User not found"));
 
         if(encoder.matches(request.getPassword(), user.getPassword())) {
-            return "Login Successful";
+            return true;
         }
 
-        return "Invalid Credentials";
+        return false;
     }
 }

@@ -6,8 +6,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class CreateLoginAccountApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(CreateLoginAccountApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(CreateLoginAccountApplication.class, args);
+    }
 
 }
